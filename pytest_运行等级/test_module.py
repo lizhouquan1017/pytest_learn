@@ -1,8 +1,13 @@
-# test_fixt1.py
+# -*- coding: utf-8 -*-
+"""
+@Time ： 2020/12/4 下午4:30
+@Auth ： lizhouquan
+@File ：test_module.py
+@IDE ：PyCharm
+@Motto：ABC(Always Be Coding)
 
-# coding:utf-8
+"""
 import pytest
-# 函数式
 
 
 def setup_module():
@@ -25,22 +30,26 @@ def teardown_function():
 
 def test_one():
     print("正在执行----test_one")
-    x = "this"
-    assert 'h' in x
 
 
 def test_two():
     print("正在执行----test_two")
-    x = "hello"
-    assert hasattr(x, 'check')
 
 
-def test_three():
-    print("正在执行----test_three")
-    a = "hello"
-    b = "hello world"
-    assert a in b
+class TestCase:
+
+    def setup_class(self):
+        print("setup_class：所有用例执行之前")
+
+    def teardown_class(self):
+        print("teardown_class：所有用例执行之前")
+
+    def test_three(self):
+        print("正在执行----test_three")
+
+    def test_four(self):
+        print("正在执行----test_four")
 
 
 if __name__ == "__main__":
-    pytest.main(["-s", "test_fixt2.py"])
+    pytest.main(["-s", "test_fixtclass.py"])

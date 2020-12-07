@@ -1,5 +1,4 @@
 # 1.实现场景：用例1需要先登录，用例2不需要登录，用例3需要先登录
-# 新建一个文件test_fixt.py
 # coding:utf-8
 
 import pytest
@@ -8,7 +7,7 @@ import pytest
 # 不带参数时默认scope="function"
 @pytest.fixture()
 def login():
-    print("输入账号，密码先登录")
+    print("登录操作")
 
 
 def test_s1(login):
@@ -23,5 +22,5 @@ def test_s3(login):
     print("用例3：登录之后其它动作333")
 
 
-# if __name__ == "__main__":
-#     pytest.main(["-s", "test_function级别_f1.py"])
+if __name__ == "__main__":
+    pytest.main(["-s", "test_fix_function.py"])
